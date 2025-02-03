@@ -18,6 +18,9 @@ type Query {
       selection: """
       id
       title
+      numOfBeds
+      costPerNight
+      closedForBooking: closedForBookings
       """
     )
 }
@@ -27,4 +30,10 @@ type Listing {
   id: ID!
   "The listing's title"
   title: String!
+  "The number of beds available"
+  numOfBeds: Int
+  "The cost per night"
+  costPerNight: Float
+  "Indicates whether listing is closed for bookings (on hiatus)"
+  closedForBooking: Boolean
 }
