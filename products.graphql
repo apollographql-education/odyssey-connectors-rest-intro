@@ -6,6 +6,10 @@
 
 extend schema
   @link(url: "https://specs.apollo.dev/federation/v2.10") # Enable this schema to use Apollo Federation features
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.10"
+    import: ["@inaccessible"]
+  )
   @link( # Enable this schema to use Apollo Connectors
     url: "https://specs.apollo.dev/connect/v0.1"
     import: ["@connect", "@source"]
@@ -37,6 +41,7 @@ type Query {
   # The Query.products field uses @connect to connect to the /products endpoint in the "ecomm" source.
   # To check out the JSON response for this endpoint, go to 🔗 https://ecommerce.demo-api.apollo.dev/products.
   products: [Product]
+    @inaccessible
     # A @connect directive defines the API data source of a GraphQL schema field.
     @connect(
       source: "ecomm"

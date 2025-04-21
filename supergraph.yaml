@@ -3,4 +3,8 @@ subgraphs:
     routing_url: http://ignore
     schema:
       file: products.graphql
+  listings:
+    routing_url: http://ignore
+    schema:
+      file: listings.graphql
 federation_version: =2.10.0
