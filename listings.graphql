@@ -21,6 +21,9 @@ type Query {
       numOfBeds
       costPerNight
       closedForBooking: closedForBookings
+      amenities {
+        id
+      }
       """
     )
 
@@ -39,6 +42,11 @@ type Query {
       photoThumbnail
       latitude
       longitude
+      amenities {
+        id
+        category
+        name
+      }
       """
       entity: true
     )
