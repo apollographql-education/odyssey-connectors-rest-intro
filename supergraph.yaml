@@ -1,6 +1,6 @@
-federation_version: =2.10.0
 subgraphs:
-  listings:
-    routing_url: http://localhost # this value is ignored
+  products:
+    routing_url: http://ignore
     schema:
-      file: listings.graphql
+      file: products.graphql
+federation_version: =2.10.0
