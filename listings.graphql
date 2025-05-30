@@ -21,6 +21,9 @@ type Query {
       numOfBeds
       costPerNight
       closedForBooking: closedForBookings
+      amenities {
+        id
+      }
       """
     )
 
@@ -39,6 +42,11 @@ type Query {
       photoThumbnail
       latitude
       longitude
+      amenities {
+        id
+        name
+        category
+      }
       """
     )
 }
@@ -58,6 +66,11 @@ type Listing
     photoThumbnail
     latitude
     longitude
+    amenities {
+      id
+      name
+      category
+    }
     """
   )
   @key(fields: "id") {
@@ -80,15 +93,6 @@ type Listing
   longitude: Float
   "The amenities available for this listing"
   amenities: [Amenity!]!
-    @connect(
-      source: "listings"
-      http: { GET: "/listings/{$this.id}/amenities" }
-      selection: """
-      id
-      name
-      category
-      """
-    )
 }
 
 type Amenity {
